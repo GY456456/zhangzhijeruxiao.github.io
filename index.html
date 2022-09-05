@@ -1,3 +1,4 @@
+	
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,8 +17,8 @@
 			.box img{
 				float: left;
 				position: absolute;
-				width:400px;
-				height: 760px;
+				width:372px;
+				height: 723px;
 			}
 			#zp{
 				z-index: 88;
@@ -25,10 +26,10 @@
 			#time{
 				position: absolute;
 				z-index: 100;
-				font-size: 16px;
+				font-size: 14px;
 				width: 300px;
-				margin-top: 462px;
-				margin-left: 160px;
+				margin-top: 442px;
+				margin-left: 157px;
 				font-weight: 500;
 				color: #2d2d2d;
 			}
@@ -37,11 +38,20 @@
 				z-index: 88;
 				font-size: 16px;
 				width: 300px;
-				margin-top: 550px;
+				margin-top: 525px;
 				margin-left: 110px;
 				color: #979797;
-				
 			}
+			#time2{
+				position: absolute;
+				z-index: 88;
+				font-size: 16px;
+				width: 300px;
+				margin-top: 446px;
+				margin-left: 107px;
+				color: #979797;
+				
+			}//离校时间显示位置
 		</style>
 	</head>
 	<body>
@@ -50,6 +60,10 @@
 			   
 			<div>
 				<p id="time1"></p>
+				<img src="img/2.jpg" >	
+			</div>
+			<div>
+				<p id="time2"></p>
 				<img src="img/2.jpg" >	
 			</div>
 		
@@ -72,18 +86,18 @@
 		        var date = new Date();
 					
 		        // 年月日
-		        var year = date.getFullYear();
-		        var month = date.getMonth() + 1;
-		        var day = date.getDate();
+		        var year = date.getFullYear().toString().padStart(2,0);//加0
+		        var month = (date.getMonth() + 1).toString().padStart(2,0);//加0
+		        var day = date.getDate().toString().padStart(2,0);//加0
 					
 		        // 时分秒
-		        var hour = date.getHours();
-		        var minute = date.getMinutes();
-		        var second = date.getSeconds();
+		        var hour = date.getHours().toString().padStart(2,0);//同上
+		        var minute = date.getMinutes().toString().padStart(2,0);
+		        var second = date.getSeconds().toString().padStart(2,0);
 					
 		        // 实时显示
 		        var element = document.getElementById('time');
-		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' +hour + ':' + minute + ':' + second;
 		    }
 					
 		    setInterval('showTime()', 1000);
@@ -93,18 +107,20 @@
 		        var date = new Date();
 					
 		        // 年月日
-		        var year = date.getFullYear();
-		        var month = date.getMonth() + 1;
-		        var day = date.getDate();
+		        var year = date.getFullYear().toString().padStart(2,0);
+		        var month = (date.getMonth() + 1).toString().padStart(2,0);
+		        var day = date.getDate().toString().padStart(2,0);
 					
 		        // 时分秒
-		        var hour = date.getHours();
-		        var minute = date.getMinutes();
-		        var second = date.getSeconds();
+		        var hour = date.getHours().toString().padStart(2,0);
+		        var minute = date.getMinutes().toString().padStart(2,0);
+		        var second = date.getSeconds().toString().padStart(2,0);
 					
 		        // 实时显示
 		        var element = document.getElementById('time1');
 		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+		        var element = document.getElementById('time2');//增加离校时间显示
+		        element.innerHTML = '<p>' + year + '-' + month + '-' + day + ' ' + 08+ ':' + 37 + ':' + 26;
 		    }
 					
 		    setInterval('cba()', 1000);
